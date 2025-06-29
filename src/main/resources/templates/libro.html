@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Dettagli libro - ' + ${libro.titolo}">Dettagli Libro</title>
+    <link rel="stylesheet" th:href="@{/css/libro.css}" type="text/css">
+</head>
+<body>
+
+    <div class="header">
+        <a class="indietro" th:href="@{/libri}">
+            <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+        </a>
+    </div>
+
+    <header>
+        <h1 th:text="${libro.titolo}">Titolo del libro</h1>
+    </header>
+
+    <main class="dettagli-libro">
+        <div class="libro-info">
+			<img th:if="${not #lists.isEmpty(libro.immagini)}"
+			     th:src="@{${libro.immagini[0].path}}"
+			     alt="Copertina del libro" />
+            <p><strong>Anno di pubblicazione:</strong> <span th:text="${libro.anno}">2020</span></p>
+
+            <div class="autori-section">
+                <h3>Autori</h3>
+                <ul th:if="${libro.autori != null and !libro.autori.isEmpty()}">
+                    <li th:each="autore : ${libro.autori}">
+						<a th:href="@{'/autore/' + ${autore.id} + '/' + ${libro.id}}"
+						   th:text="${autore.nome + ' ' + autore.cognome}">
+						   Nome Cognome
+						</a>
+                    </li>
+                </ul>
+                <p th:if="${libro.autori == null or libro.autori.isEmpty()}">
+                    Nessun autore associato a questo libro.
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

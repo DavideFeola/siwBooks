@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Libri</title>
+    <link rel="stylesheet" th:href="@{/css/libri.css}" />
+</head>
+<body>
+
+    <div class="header">
+        <a class="indietro" th:href="@{/}">
+            <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+        </a>
+    </div>
+
+    <h1>I nostri Libri</h1>
+
+    <div class="grid">
+        <a th:each="libro : ${libri}" 
+           th:href="@{'/libro/' + ${libro.id}}" 
+           class="book-card">
+		   <img th:if="${not #lists.isEmpty(libro.immagini)}"
+		        th:src="@{${libro.immagini[0].path}}" 
+		        alt="Copertina libro">
+            <div class="book-title" th:text="${libro.titolo}">Titolo</div>
+        </a>
+    </div>
+
+</body>
+</html>
+
+

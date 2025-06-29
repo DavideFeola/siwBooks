@@ -1,0 +1,102 @@
+/* Sfondo e testo di base */
+body {
+    background-color: #0a0f2c;
+    font-family: Arial, sans-serif;
+    color: #f6c6c6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0a0f2c;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid #0a0f2c;
+}
+
+header .title {
+    font-size: 2em;
+    color: #f6c6c6;
+    margin: 0;
+}
+
+/* Pulsante "indietro" */
+.indietro {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.indietro img {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.2s ease;
+}
+
+.indietro:hover img {
+    transform: scale(1.1);
+}
+
+/* Contenitore principale delle recensioni */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(28, 46, 128, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Messaggio se non ci sono recensioni */
+.empty {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ffd2d2;
+}
+
+/* Card singola recensione */
+.recensione-card {
+    background-color: #1c2e80;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #f6c6c6;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Testo dentro ogni recensione */
+.recensione-card p {
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+/* Bottone "Cancella" (ora solo immagine) */
+.delete-button {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Icona del cestino */
+.icon-trash {
+    width: 26px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.icon-trash:hover {
+    transform: scale(1.15);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #f6c6c6;
+}

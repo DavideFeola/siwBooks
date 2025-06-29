@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuovo Autore</title>
+    <link rel="stylesheet" th:href="@{/css/nuovoAutore.css}" type="text/css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Aggiungi un Autore</h1>
+    </div>
+</header>
+
+<main>
+    <div class="principale">
+        <h1>Nuovo Autore</h1>
+
+        <form th:action="@{/amministratore/autoreAggiunto}" 
+              th:object="${autore}" 
+              method="POST" 
+              enctype="multipart/form-data"> 
+
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input id="nome" th:field="*{nome}" type="text" placeholder="Nome">
+                <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input id="cognome" th:field="*{cognome}" type="text" placeholder="Cognome">
+                <div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="dataNascita">Data di nascita</label>
+                <input id="dataNascita" th:field="*{dataNascita}" type="date">
+                <div th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="dataMorte">Data di morte</label>
+                <input id="dataMorte" th:field="*{dataMorte}" type="date">
+                <div th:if="${#fields.hasErrors('dataMorte')}" th:errors="*{dataMorte}" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="nazione">Nazione</label>
+                <input id="nazione" th:field="*{nazione}" type="text" placeholder="Nazione">
+            </div>
+
+			<div class="form-group">
+			    <label for="foto">Fotografia</label>
+			    <input id="foto" name="foto" type="file" accept="image/*">
+			    <div th:if="${#fields.hasErrors('fotografia')}" th:errors="*{fotografia}" class="error"></div>
+			</div>
+
+            <button type="submit">Aggiungi</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

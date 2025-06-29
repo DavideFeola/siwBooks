@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggiorna Libri</title>
+    <link rel="stylesheet" th:href="@{/css/aggiornaLibri.css}" />
+</head>
+<body>
+
+    <div class="header">
+        <a class="indietro" th:href="@{/}">
+            <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+        </a>
+    </div>
+
+    <h1 style="text-align: center;">Aggiorna uno di questi libri</h1>
+    
+    <div class="lista-libri">
+        <h2>Catalogo:</h2>
+        <ul>
+            <li th:each="libro : ${libri}">
+                <span>
+                    <span th:text="${libro.titolo}">Titolo</span>
+                    <span th:text="'(' + ${libro.anno} + ')'">(2024)</span>
+                </span>
+                <a th:href="@{'/amministratore/modificaLibro/' + ${libro.id} + '?username=' + ${#authentication.principal.username}}"
+                   class="link-aggiorna">Modifica Libro</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

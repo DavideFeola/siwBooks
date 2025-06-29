@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilo Utente</title>
+    <link rel="stylesheet" th:href="@{/css/profilo.css}" />
+</head>
+<body>
+
+<!-- HEADER con pulsante indietro -->
+<header>
+    <div class="top-bar">
+        <a class="indietro" th:href="@{/}">
+            <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+        </a>
+        <form th:action="@{/logout}" method="post" class="logout-form">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</header>
+
+<!-- CONTENUTO PROFILO -->
+<main class="profile-container">
+    <h1 class="profile-title">Profilo</h1>
+
+    <div class="profile-info">
+        <p><strong>Nome:</strong> <span th:text="${user.nome}"></span></p>
+        <p><strong>Cognome:</strong> <span th:text="${user.cognome}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <div class="recensioni-box">
+            <a th:href="@{'/profilo/leMieRecensioni?username=' + ${#authentication.principal.username}}" class="recensioni-link">Le mie recensioni</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; SIWBOOKS 2025</p>
+</footer>
+
+</body>
+</html>

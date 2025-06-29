@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accesso Negato</title>
+    <style>
+        body {
+            background-color: #0a0f2c; /* Sfondo blu notte */
+            font-family: Arial, sans-serif;
+            color: #f6c6c6; /* Testo rosa carne */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(28, 46, 128, 0.15); /* Box traslucido */
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #ff6b6b; /* Rosso chiaro */
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #f6c6c6;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f6c6c6; /* Bottone rosa chiaro */
+            color: #0a0f2c; /* Testo scuro */
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #ffd2d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Accesso Negato</h1>
+        <p>Non sei autorizzato ad accedere a questa risorsa.<br>
+           Per favore, accedi con un account autorizzato.</p>
+		   <a href="/">Torna alla Home</a>
+    </div>
+</body>
+</html>

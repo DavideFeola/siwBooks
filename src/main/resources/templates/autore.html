@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettagli Autore</title>
+    <link rel="stylesheet" th:href="@{/css/autoreDettagli.css}">
+</head>
+<body>
+
+<div class="header">
+    <a class="indietro" th:href="@{'/libro/' + ${libroId}}">
+        <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+    </a>
+</div>
+
+<header>
+    <h1 th:text="'Qualcosa in più su: ' + ${autore.nome} + ' ' + ${autore.cognome}">Dettagli Autore</h1>
+</header>
+
+<main class="contenuto">
+    <div class="scheda-autore">
+		<img th:if="${autore.fotografia != null}"
+		     th:src="${autore.fotografia.path}"
+		     alt="Foto autore" class="foto-autore" />
+        <div class="dati-autore">
+            <p><strong>Nome:</strong> <span th:text="${autore.nome}">Mario</span></p>
+            <p><strong>Cognome:</strong> <span th:text="${autore.cognome}">Rossi</span></p>
+            <p><strong>Data di nascita:</strong> <span th:text="${autore.dataNascita}">1960-01-01</span></p>
+            <p>
+                <strong>Data di morte:</strong>
+                <span th:text="${autore.dataMorte != null ? autore.dataMorte : 'Ancora in vita'}">Ancora in vita</span>
+            </p>
+            <p>
+                <strong>Nazione:</strong>
+               <span th:text="${#strings.isEmpty(autore.nazione) ? 'Non specificata' : autore.nazione}">Italia</span>
+            </p>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

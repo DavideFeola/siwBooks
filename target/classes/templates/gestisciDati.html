@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Libri</title>
+    <link rel="stylesheet" th:href="@{/css/gestisciDati.css}">
+</head>
+<body>
+	<div class="header-nav">
+		<a th:href="@{/}" class="indietro">
+		    <img src="/images/indietrosiwbooks.png" alt="Torna alla home">
+		</a>
+	</div>
+<header>
+    <div class="logo-center">
+        <img src="/images/siwBooks.png" alt="Logo" class="logo-img">
+    </div>
+</header>
+
+<div class="container">
+    <h2>Gestione Libri e Autori</h2>
+
+	<!-- BARRA DI RICERCA PER TITOLO -->
+	<form th:action="@{/amministratore/gestioneDati}" method="get" class="search-form">
+	    <input type="hidden" name="username" th:value="${username}">
+	    <input type="text" name="titolo" placeholder="Ricerca libro o autore da cancellare" class="search-bar">
+	    <button type="submit" class="button">Cerca</button>
+	    <a th:href="@{/amministratore/gestioneDati(username=${username})}" class="button reset-button">Reset</a>
+	</form>
+
+    <!--MESSAGGIO DI ERRORE-->
+    <p class="avviso" style="color: red" th:if="${errore != null}" th:text="${errore}"></p>
+	
+	<!-- LISTA AUTORI -->
+	<div class="sezione-dati">
+	    <ul>
+	        <li th:each="autore : ${autori}" class="voce-dato">
+	            <span th:text="${autore.nome + ' ' + autore.cognome}">Nome Autore</span>
+	            <a th:href="@{'/amministratore/eliminaAutore/' + ${autore.id} + '?username=' + ${#authentication.principal.username}}"
+	               class="button danger-button"
+	               title="Cancella autore">
+	               Cancella
+	            </a>
+	        </li>
+	    </ul>
+	</div>
+
+	<!-- LISTA LIBRI -->
+	<div class="sezione-dati">
+	    <ul>
+	        <li th:each="libro : ${libri}" class="voce-dato">
+	            <span th:text="${libro.titolo}">Titolo del libro</span>
+	            <a th:href="@{'/amministratore/eliminaLibro/' + ${libro.id}+ '?username=' + ${#authentication.principal.username}}"
+	               class="button danger-button"
+	               title="Cancella libro">
+	               Cancella
+	            </a>
+	        </li>
+	    </ul>
+	</div>
+</div>
+
+<footer class="footer">
+    <p>&copy; SIWBOOKS 2025</p>
+</footer>
+
+</body>
+</html>

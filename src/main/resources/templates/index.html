@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Siw Books 2025</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+	<!-- Utente NON autenticato -->
+	<div class="container anonymous-buttons" sec:authorize="isAnonymous()">
+	    <h1>
+	        <img src="/images/siwBooks.png" alt="Logo" class="logo-img">
+	    </h1>
+	    <a th:href="@{/login}" class="button login-button">Accedi</a>
+	    
+	    <!-- Messaggio informativo -->
+	    <p class="info-non-autenticato">Autenticati per ottenere più servizi.</p>
+	</div>
+
+	<!-- Utente autenticato -->
+	<div sec:authorize="isAuthenticated()">
+	    <div class="top-bar">
+	        <div class="top-right-buttons">
+				<a th:href="@{/profilo}" class="button login-button">
+				    <img src="/images/profilo2.png" alt="Icona Profilo" class="icon-profile">
+				    Profilo
+				</a>
+	            <a th:href="@{/logout}" class="button login-button">Log Out</a>
+	        </div>
+	    </div>
+	    <div class="logo-center">
+	        <img src="/images/siwBooks.png" alt="Logo" class="logo-img">
+	    </div>
+	</div>
+
+	
+</header>
+
+<!-- CONTENUTO PRINCIPALE -->
+<div class="container">
+    <div class="buttons">
+		<!-- Bottone "Consulta Libreria" visibile solo se NON sei un amministratore -->
+		<div sec:authorize="!hasAuthority('AMMINISTRATORE')">
+		    <a th:href="@{/libri}" class="button">
+		        <img src="/images/occhioindex.png" alt="Consulta Libreria" class="icon-inline">
+		        Consulta Catalogo
+		    </a>
+		</div>
+
+		<!-- Per tutti gli altri: mostra i libri più apprezzati -->
+		<div sec:authorize="!hasAuthority('AMMINISTRATORE')">
+		    <a th:href="@{/classifica}" class="button">
+		        <img src="/images/like.png" alt="Libri più apprezzati" class="icon-inline">
+		        Libri più apprezzati
+		    </a>
+		</div>
+	
+		<!-- Solo per amministratore: Inserisci un Autore -->
+		<div sec:authorize="hasAuthority('AMMINISTRATORE')">
+		    <a th:href="@{/amministratore/nuovoAutore(username=${#authentication.principal.username})}" class="button">
+		        Inserisci un Autore
+		    </a>
+		</div>
+
+        <!-- Inserisci libro: solo per AMMINISTRATORE -->
+        <div sec:authorize="hasAuthority('AMMINISTRATORE')">
+            <a th:href="@{/amministratore/nuovoLibro(username=${#authentication.principal.username})}" class="button">
+                Inserisci un Libro
+            </a>
+        </div>
+
+		<!-- Solo per AMMINISTRATORE -->
+		<div sec:authorize="hasAuthority('AMMINISTRATORE')">
+		    <a th:href="@{/amministratore/aggiornaLibri(username=${#authentication.principal.username})}" class="button">
+		        Aggiorna Libri
+		    </a>
+		</div>
+
+		<!-- Solo per UTENTE (autenticato ma NON amministratore) -->
+		<div sec:authorize="hasAuthority('UTENTE')">
+		    <a th:href="@{/utente/recensione(username=${#authentication.principal.username})}" class="button">
+				<img src="/images/matita.png" alt="Lascia una recensione" class="icon-inline">
+		        Lascia Recensione
+		    </a>
+		</div>
+		<!-- Solo per AMMINISTRATORE -->
+			<div sec:authorize="hasAuthority('AMMINISTRATORE')">
+			    <a th:href="@{/amministratore/gestioneDati(username=${#authentication.principal.username})}" class="button">
+			        Gestisci dati
+			    </a>
+			</div>
+		
+    </div>
+	
+</div>
+
+<!-- Messaggio di benvenuto -->
+<div class="welcome-message" sec:authorize="isAuthenticated()">
+	<h1 class="custom-thin-italic">
+	    Benvenuto <span sec:authentication="name"></span>
+	</h1>
+</div>
+
+<!-- Conferma se un libro è stato aggiunto -->
+<p class="avviso" style="color: green"
+   th:if="${libroAggiunto != null}"
+   th:text="${libroAggiunto}">
+</p>
+
+<!-- Conferma se un libro è stato aggiunto -->
+<p class="avviso" style="color: green"
+   th:if="${autoreAggiunto != null}"
+   th:text="${autoreAggiunto}">
+</p>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; SIWBOOKS 2025</p>
+</footer>
+
+</body>
+</html>

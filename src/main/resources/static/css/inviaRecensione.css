@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("/images/recensione.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #0a0f2c;
+}
+
+header {
+    background-color: #0a0f2c;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    color: #f6c6c6;
+    font-size: 2em;
+    margin: 0;
+}
+
+.indietro {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.indietro img {
+    width: 35px;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* area visibile */
+}
+
+.recensione-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.libro-img {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.libro-img img {
+    max-width: 140px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #1c2e80;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 12px;
+}
+
+input[type="number"],
+textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95em;
+    width: 90%;             
+    max-width: 300px;       
+    background-color: #fdf1f1;
+    color: #0a0f2c;
+}
+
+label {
+    font-weight: bold;
+    color: #1c2e80;
+    font-size: 0.95em;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+    max-height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #1c2e80;
+    color: #f6c6c6;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2d42a1;
+}

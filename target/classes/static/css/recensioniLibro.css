@@ -1,0 +1,86 @@
+ /* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body e container */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffeef5;
+    background-image: url("/images/recensione.png");
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+/* Griglia */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Informazioni */
+.info {
+    padding: 15px;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: rgba(255, 238, 245, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    width: 240px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.copertina {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+blockquote {
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+}

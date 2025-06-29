@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggiungi Autore</title>
+    <link rel="stylesheet" th:href="@{/css/stileAutori.css}" />
+</head>
+<body>
+
+<header>
+    <h1 th:text="'Ci sono Nuovi Autori? Aggiungili! (' + ${libro.titolo} + ')'">Titolo libro</h1>
+</header>
+
+<main class="contenuto">
+
+    <!-- Se la lista è vuota -->
+    <p th:if="${disponibili.isEmpty()}" style="text-align: center; font-style: italic;">
+        Non ci sono autori da aggiungere.
+    </p>
+
+    <!-- Se la lista contiene elementi -->
+    <ul class="lista-autori" th:if="${!disponibili.isEmpty()}">
+        <li th:each="autore : ${disponibili}">
+            <span th:text="${autore.nome + ' ' + autore.cognome + ' (' + autore.nazione + ')'}">Mario Rossi (Italia)</span>
+            <a th:href="@{'/amministratore/aggiungiAutore/' + ${libro.id} + '/' + ${autore.id}}" class="aggiungi-link">
+                <img th:src="@{/images/piu2.png}" alt="Aggiungi" class="icona-piu" />
+            </a>
+        </li>
+    </ul>
+
+</main>
+
+</body>
+</html>

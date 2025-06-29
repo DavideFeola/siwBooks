@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Classifica Libri</title>
+    <link rel="stylesheet" th:href="@{/css/classifica.css}">
+</head>
+<body class="container">
+    <h1>Libri consigliati dai nostri utenti</h1>
+
+    <!-- Messaggio se non ci sono libri da mostrare -->
+    <div th:if="${#lists.isEmpty(libri)}">
+        <p>Nessun libro consigliato attualmente.</p>
+    </div>
+
+    <div class="grid">
+        <div th:each="libro : ${libri}" th:if="${medie[libro.id] > 3}" class="card">
+            
+            <!-- Copertina -->
+			<img th:if="${not #lists.isEmpty(libro.immagini)}"
+			     th:src="@{${libro.immagini[0].path}}"
+			     alt="Copertina libro" class="copertina"/>
+
+            <!-- Info -->
+            <div class="info">
+                <h2 th:text="${libro.titolo}">Titolo libro</h2>
+                <p>Media recensioni:
+                    <span th:text="${#numbers.formatDecimal(medie[libro.id], 1, 1)}">4.0</span>
+                </p>
+                
+                <!-- Prima recensione se disponibile -->
+                <div th:if="${not #lists.isEmpty(libro.recensioni)}">
+                    <blockquote th:text="${libro.recensioni.get(0).descrizione}">"Recensione breve..."</blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

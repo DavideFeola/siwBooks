@@ -1,0 +1,67 @@
+/* Sfondo della pagina */
+body {
+    background-color: #0a0f2c;
+    background-image: url("/images/libreria.png"); /* Aggiorna il percorso se serve */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #f6c6c6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Intestazione */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #f6c6c6;
+}
+
+/* Box centrale */
+.contenuto {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #0a0f2c; /* Blu scuro per contrasto */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Lista autori */
+.lista-autori {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-autori li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2e80; /* Blu più chiaro */
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    color: #f6c6c6;
+    font-size: 1.1em;
+}
+
+.aggiungi-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.aggiungi-link:hover {
+    transform: scale(1.1);
+}
+
+.icona-piu {
+    width: 34px;  /* o la dimensione che preferisci */
+    height: 34px;
+    object-fit: contain;
+}

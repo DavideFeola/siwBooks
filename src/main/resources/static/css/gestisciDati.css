@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0A0F2C;
+    color: #ffffff;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+.header-nav a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: bold;
+    color: #f6c6c6;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header-nav img {
+    height: 24px;
+}
+
+.logo-center {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.logo-img {
+    max-width: 180px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+}
+
+.container h2 {
+    color: #f6c6c6;
+    font-weight: 600;
+    margin-bottom: 2em;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.search-bar {
+    flex-grow: 1;
+    padding: 0.7em 1em;
+    font-size: 1em;
+    min-width: 250px;
+    border: 2px solid #f6c6c6;
+    border-radius: 6px;
+    background-color: #12183e;
+    color: white;
+}
+
+.search-form .button {
+    background-color: #f6c6c6;
+    color: #0A0F2C;
+    border: none;
+    padding: 0.6em 1.2em;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form .button:hover {
+    background-color: #e8b1b1;
+}
+
+.avviso {
+    color: #ffaaaa;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+
+.sezione-dati ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.voce-dato {
+    background-color: #12183e;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.voce-dato span {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.danger-button {
+    background-color: #f6c6c6;
+    color: #0A0F2C;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.danger-button:hover {
+    background-color: #e8b1b1;
+}
+
+.footer {
+    text-align: center;
+    padding: 2em;
+    color: #999;
+    font-size: 0.9em;
+    margin-top: 3em;
+}
+
+.indietro img {
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+
+.indietro:hover img {
+    transform: scale(1.1);
+}
+
+.indietro {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.button {
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+
+.button:hover,
+.danger-button:hover,
+.reset-button:hover {
+    transform: scale(1.05);
+}
+
+.reset-button {
+    background-color: transparent;
+    border: 2px solid #f6c6c6;
+    color: #f6c6c6;
+    padding: 0.6em 1.2em;
+    border-radius: 6px;
+    font-weight: normal;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #f6c6c6;
+    color: #0A0F2C;
+    transform: scale(1.05);
+}
+

@@ -1,0 +1,157 @@
+/* Sfondo generale */
+body {
+    background-color: #0a0f2c;
+    font-family: Arial, sans-serif;
+    color: #f6c6c6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo-img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 0px;
+    margin-top: -10px;
+}
+
+/* Contenitore centrale */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+/* Bottoni principali */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    padding: 14px 28px;
+    background-color: #1c2e80;
+    color: #f6c6c6;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2b3eb5;
+}
+
+/* Immagini inline nei bottoni */
+.button img.icon-inline {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    filter: brightness(0.95);
+}
+
+/* Bottoni in alto */
+.login-button {
+    margin: 0 10px;
+}
+
+/* Messaggio di benvenuto */
+.welcome-message {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #f6c6c6;
+}
+
+/* Messaggi dinamici */
+.avviso {
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #f6c6c6;
+}
+
+/* Contenitore in alto per i bottoni */
+.top-bar {
+    position: relative;
+    height: 60px;
+}
+
+/* Bottoni di destra */
+.top-right-buttons {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Logo centrato */
+.logo-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.logo-center img {
+    max-width: 130px;
+    height: auto;
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+/* Icona del profilo */
+.icon-profile {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Layout dei bottoni centrali */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons .button {
+    width: 250px;
+    max-width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    box-sizing: border-box;
+}
+
+.info-non-autenticato {
+    margin-top: 70px;
+    font-size: 1em;
+    color: #f6c6c6;
+    font-style: italic;
+}
+
+.logo-center .logo-img {
+    max-width: 160px;
+}
+
+.anonymous-buttons {
+    margin-top: -30px;
+}

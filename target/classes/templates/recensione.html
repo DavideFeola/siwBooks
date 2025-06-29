@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recensisci Libri</title>
+    <link rel="stylesheet" th:href="@{/css/recensione.css}">
+</head>
+<body>
+
+<header>
+    <div class="header">
+        <a class="indietro" th:href="@{/}">
+            <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+        </a>
+        <h1>Lascia una Recensione...</h1>
+    </div>
+</header>
+
+<main>
+	<!-- Ricerca per titolo libro -->
+	<div class="ricerca">
+	    <h2>Ricerca Libro</h2>
+	    <form th:action="@{/utente/recensione}" th:method="GET">
+	        <input name="titolo" placeholder="Inserisci Titolo" th:value="${titolo}" type="text" required>
+	        <input name="username" th:value="${username}" type="hidden" required>
+	        <input type="submit" value="Cerca">
+	        <a class="reset" th:href="@{/utente/recensione(username=${username})}">Reset</a>
+	    </form>
+	</div>
+
+    <!-- Messaggi informativi -->
+    <div class="notifiche">
+        <p th:if="${errore != null}" th:text="${errore}" style="color: red;"></p>
+        <p th:if="${recensioneEsistente != null}" th:text="${recensioneEsistente}" style="color: red;"></p>
+        <p th:if="${recensioneInviata != null}" th:text="${recensioneInviata}" style="color: green;"></p>
+    </div>
+
+	<!-- Lista libri da recensire -->
+	<div class="container">
+	    <ul class="libri-lista" th:each="libro : ${libri}">
+	        <li class="libro-item">
+	            <div class="libro-info">
+					<span>
+					    <strong th:text="${libro.titolo}">Titolo</strong> - Autori:
+					    <span th:each="autore, iterStat : ${libro.autori}">
+					        <span th:text="${autore.cognome}"></span><span th:if="${!iterStat.last}">, </span>
+					    </span>
+					    <span th:if="${#lists.isEmpty(libro.autori)}">Nessun autore</span>
+					</span>
+	            </div>
+
+	            <div class="azioni">
+					<a th:href="@{'/utente/vediRecensioniLibro/' + ${libro.id} + '?username=' + ${username}}" class="btn-vedi">Vedi recensioni</a>
+					<a th:href="@{'/utente/recensisciLibro/' + ${libro.id} + '?username=' + ${username}}" class="btn-recensisci">Recensisci</a>
+	            </div>
+	        </li>
+	    </ul>
+	</div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* Sfondo generale */
+body {
+    background-color: #0a0f2c;
+    font-family: Arial, sans-serif;
+    color: #f6c6c6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #f6c6c6;
+}
+
+/* Container principale */
+.dettagli-libro {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(28, 46, 128, 0.15);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Info libro */
+.libro-info {
+    text-align: center;
+}
+
+.libro-info img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Sezione autori */
+.autori-section {
+    margin-top: 30px;
+}
+
+/* Intestazione autori con bottone "Aggiungi" */
+.autori-section > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.autori-section h3 {
+    font-size: 1.4em;
+    color: #d6dfff;
+    margin: 0;
+}
+
+/* Pulsante "Aggiungi autori" */
+.aggiungi-autore {
+    font-weight: bold;
+    background-color: #1c2e80;
+    color: #f6c6c6;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.aggiungi-autore:hover {
+    background-color: #2d42a1;
+    text-decoration: underline;
+}
+
+/* Lista autori */
+.autori-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Barra autore */
+.autori-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2e80;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+/* Nome autore (link) */
+.autori-section li a:first-child {
+    color: #f6c6c6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.autori-section li a:first-child:hover {
+    text-decoration: underline;
+}
+
+/* Bottone "Cancella autore" */
+.cancella-autore {
+    font-size: 0.9em;
+    color: #f6c6c6;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cancella-autore:hover {
+    color: #ffd2d2;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffd2d2;
+}
+
+.autori-section h3 {
+    font-size: 1.4em;
+    color: #f6c6c6; 
+    margin: 0;
+}
+
+.indietro img {
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+
+.indietro:hover img {
+    transform: scale(1.1);
+}
+
+.indietro {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+

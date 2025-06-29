@@ -1,0 +1,75 @@
+body {
+    background-image: url("/images/libreria.png");
+    background-size: contain; /* ridimensiona lo sfondo per intero */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: #0a0f2c; /* blu scuro di contorno */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #f6c6c6; /* Rosa chiaro */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne */
+    gap: 20px; /* distanza tra i libri */
+    justify-items: center;
+    max-width: 720px; /* larghezza massima della riga */
+    margin: 0 auto;   /* centra la griglia nella pagina */
+	row-gap: 30px;      /* Spazio tra le righe (riga sopra e sotto) */
+    max-height: 80vh;       /* altezza massima relativa allo schermo */
+    overflow-y: auto;       /* abilita la scrollbar verticale */
+    padding-right: 10px;    /* spazio per non nascondere contenuto sotto la scrollbar */
+}
+
+
+.book-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 150px;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.book-title {
+    padding: 6px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.indietro img {
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+
+.indietro:hover img {
+    transform: scale(1.1);
+}
+
+.indietro {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

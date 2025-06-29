@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Le mie recensioni</title>
+    <link rel="stylesheet" th:href="@{/css/mieRecensioni.css}" />
+</head>
+<body>
+
+	<header class="header-full">
+	    <a class="indietro" th:href="@{/profilo}">
+	        <img src="/images/indietrosiwbooks.png" alt="Torna indietro">
+	    </a>
+	    <h1 class="title">Le mie recensioni</h1>
+
+	    <!-- Messaggio informativo dopo eliminazione -->
+	    <p th:if="${recensioneEliminata != null}" 
+	       th:text="${recensioneEliminata}" 
+	       style="color: red; text-align: center; font-weight: bold;">
+	    </p>
+	</header>
+
+<main class="container">
+    <div th:if="${#lists.isEmpty(recensioni)}" class="empty">
+        <p>Non hai ancora scritto recensioni.</p>
+    </div>
+
+    <div th:each="recensione : ${recensioni}" class="recensione-card">
+        <p><strong>Libro:</strong> <span th:text="${recensione.libro.titolo}"></span></p>
+        <p><strong>Voto:</strong> <span th:text="${recensione.voto}"></span></p>
+        <p><strong>Recensione:</strong> <span th:text="${recensione.descrizione}"></span></p>
+		<a th:href="@{'/profilo/leMieRecensioni/cancellaRecensione/' + ${recensione.id}+ '?username=' + ${#authentication.principal.username}}"
+		   class="delete-button">
+		    <img src="/images/cestinorosa.png" alt="Cancella" class="icon-trash">
+		</a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; SIWBOOKS 2025</p>
+</footer>
+
+</body>
+</html>

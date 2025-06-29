@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invia Recensione</title>
+    <link rel="stylesheet" th:href="@{/css/inviaRecensione.css}">
+</head>
+<body>
+
+<header>
+    <a class="indietro" th:href="@{/utente/recensione(username=${username})}">
+        <img alt="Indietro" th:src="@{/images/indietrosiwbooks.png}" />
+    </a>
+    <h1>Lascia la tua recensione per questo libro</h1>
+</header>
+
+<main>
+    <div class="recensione-box">
+        <div class="libro-img">
+			<img th:if="${not #lists.isEmpty(libro.immagini)}"
+			     th:src="@{${libro.immagini[0].path}}"
+			     alt="Copertina del Libro">
+        </div>
+
+        <form th:action="@{/utente/inviaRecensione}" th:method="POST" class="form-recensione">
+            <label for="voto">Voto (da 1 a 5):</label>
+            <input type="number" id="voto" name="voto" min="1" max="5" required>
+
+            <label for="descrizione">Descrizione:</label>
+            <textarea id="descrizione" name="descrizione" rows="5" placeholder="Scrivi la tua recensione..." required></textarea>
+
+            <input type="hidden" name="libroId" th:value="${libro.id}">
+            <input type="hidden" name="username" th:value="${username}">
+            
+            <button type="submit" class="btn-invia">Invia Recensione</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* Sfondo generale */
+body {
+    background-color: #0a0f2c;
+    font-family: Arial, sans-serif;
+    color: #f6c6c6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #f6c6c6;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+/* Container principale */
+.principale {
+    width: 100%;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 25px;
+    background-color: rgba(28, 46, 128, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* Titolo interno */
+.principale h1 {
+    margin-bottom: 25px;
+    color: #f6c6c6;
+    font-size: 1.6em;
+}
+
+/* Form group (per ogni campo) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/* Etichette */
+.form-group label {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: #f6c6c6;
+}
+
+/* Input */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c2e80;
+    border: none;
+    border-radius: 8px;
+    color: #f6c6c6;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Placeholder */
+.form-group input::placeholder {
+    color: #f6c6c6;
+    opacity: 0.7;
+}
+
+/* Messaggi di errore Thymeleaf */
+.error {
+    color: #ff6b6b;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+/* Bottone */
+button {
+    width: 100%;
+    background-color: #f6c6c6;
+    color: #0a0f2c;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffd2d2;
+}
+
+
+.form-group input[type="file"] {
+    padding: 10px;
+    background-color: #1c2e80;
+    color: #f6c6c6;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    background-color: #f6c6c6;
+    color: #0a0f2c;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background-color: #ffd2d2;
+}
+

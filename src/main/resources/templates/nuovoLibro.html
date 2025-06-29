@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuovo Libro</title>
+
+    <link rel="stylesheet" th:href="@{/css/nuovoLibro.css}" type="text/css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Aggiungi un Libro</h1>
+    </div>
+</header>
+
+<main>
+    <div class="principale">
+        <h1>Nuovo Libro</h1>
+
+        <form th:action="@{/amministratore/libroAggiunto}"
+              th:object="${libro}"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <!-- Titolo -->
+            <div class="form-group">
+                <label for="titolo">Titolo del libro</label>
+                <input id="titolo" th:field="*{titolo}" type="text" placeholder="Titolo del libro">
+                <div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}" class="error"></div>
+            </div>
+
+			<!-- Copertina -->
+			<div class="form-group">
+			    <label for="immagine">Copertina</label>
+			    <input id="immagine" name="immagine" type="file" accept="image/*">
+
+			    <!-- Errore globale spostato dentro il form-group -->
+			    <div th:if="${#fields.hasGlobalErrors()}" class="error">
+			        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+			    </div>
+			</div>
+
+            <!-- Anno -->
+            <div class="form-group">
+                <label for="anno">Anno di pubblicazione</label>
+                <input id="anno" th:field="*{anno}" type="number" placeholder="Anno di pubblicazione">
+                <div th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}" class="error"></div>
+            </div>
+
+            <button type="submit">Aggiungi</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
